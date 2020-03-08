@@ -40,7 +40,7 @@ class AutoManager{
         return $test; 
     }
     public function affichNb(){
-        $query =$this->_db->prepare('SELECT m.ID_MODELE, a.ID_MODELE, mq.NOM_MARQUE, COUNT(a.ID_MODELE) AS nb
+        $query =$this->_db->prepare('SELECT m.ID_MODELE, a.ID_MODELE, mq.NOM_MARQUE,m.NOM_MODELE, COUNT(a.ID_MODELE) AS nb
         FROM  modele m, auto a, marque mq
         WHERE m.ID_MODELE = a.ID_MODELE
         AND mq.ID_MARQUE = m.ID_MARQUE
