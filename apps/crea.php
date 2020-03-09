@@ -25,7 +25,7 @@
     </div>
 </div>
 <div class="crea">
-    <h1>créer une auto</h1>
+    <h1>créer une marque</h1>
     <div class="crea_marque">
         <form action="" method="POST">
             <h2>nom de la marque</h2>

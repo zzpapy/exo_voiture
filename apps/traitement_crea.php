@@ -9,7 +9,7 @@ if(isset($_POST["couleur"])){
     $manager = new CouleurManager($db);
     $manager -> add($couleurs);    
 }
-if(isset($_POST["moteur"])){
+if(isset($_POST["moteur"]) &&!isset($_POST["auto"])){
     $moteurs =["TYPE_MOTEUR"=>$_POST["moteur"]];
     $manager = new MoteurManager($db);
     $manager -> add($moteurs);    
@@ -35,8 +35,9 @@ if(isset($_POST["modele"]) && !isset($_POST["auto"])){
     $manager -> add($modeles);    
 }
 if(isset($_POST["auto"])){
+    var_dump($_POST);
     $manager = new AutoManager($db);
-    $auto =["PLAQUE"=>$_POST["auto"],"NB_PORTES"=>$_POST["nb_portes"],"ID_MODELE"=>14,"ID_MOTEUR"=>1];    
+    $auto =["PLAQUE"=>$_POST["auto"],"NB_PORTES"=>$_POST["nb_portes"],"ID_MODELE"=>$_POST["modele"],"ID_MOTEUR"=>$_POST["moteur"]];    
     $manager = new AutoManager($db);
     $manager -> add($auto);
     var_dump($_POST);
