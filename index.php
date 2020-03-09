@@ -65,11 +65,12 @@ require'apps/skel.php';
     // $manager -> add($modeles);
 
     
-    $auto =["PLAQUE"=>"EX-337-RX","NB_PORTES"=>5,"ID_MODELE"=>14,"ID_MOTEUR"=>1];    
-    $manager = new AutoManager($db);
-    $manager -> add($auto);
+    // $auto =["PLAQUE"=>"EX-337-RX","NB_PORTES"=>5,"ID_MODELE"=>14,"ID_MOTEUR"=>1];    
+    // $manager = new AutoManager($db);
+    // $manager -> add($auto);
     
-    $couleurs=["ID_COULEUR"=>2,"ID_VOITURE"=>13];     
+    $couleurs=["ID_COULEUR"=>5,"ID_VOITURE"=>3];     
     $manager = new VoitureCouleurManager($db);
-    $manager -> add($couleurs);
+    $color = $manager -> add($couleurs);
+    var_dump($color);
 ?>

@@ -57,6 +57,28 @@ class AutoManager{
         return $autos; 
         
     }
+    public function multiColor(){
+        $query=$this->_db->prepare( 'SELECT DISTINCT a.PLAQUE,c.NOM_COULEUR,vc.ID_VOITURE
+        FROM auto a, voiture_couleur vc, couleur c, modele m
+        WHERE a.ID_VOITURE = vc.ID_VOITURE
+        AND vc.ID_COULEUR = c.ID_COULEUR
+        AND c.NOM_COULEUR = "gris"
+        AND a.PLAQUE IN(SELECT  a.PLAQUE
+            FROM voiture_couleur vc, couleur c, modele m
+            WHERE a.ID_VOITURE = vc.ID_VOITURE
+            AND vc.ID_COULEUR = c.ID_COULEUR
+            AND c.NOM_COULEUR = "violet")');
+        $autos=$query->execute();
+        $autos = $query->fetchALL();
+        return $autos; 
+        
+    }
+    public function findByModele($id){
+        $query = $this->_db->prepare('SELECT ID_MODELE FROM auto WHERE ID_VOITURE='.$id);
+        $query->execute();
+        $id = $query->fetch();
+        return $id;
+    }
     
 }
 ?>

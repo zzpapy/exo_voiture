@@ -11,7 +11,7 @@ AND o.NOM_ORIGINE = 'france'
 
 *************** exo2 *******************
 
-SELECT m.ID_MODELE, a.ID_MODELE, mq.NOM_MARQUE, COUNT(a.ID_MODELE) AS nb
+SELECT  mq.NOM_MARQUE, COUNT(a.ID_MODELE) AS nb
 FROM  modele m, auto a, marque mq
 WHERE m.ID_MODELE = a.ID_MODELE
 AND mq.ID_MARQUE = m.ID_MARQUE
@@ -40,16 +40,16 @@ ORDER BY nb DESC
 
 *************** exo5 *******************
 
-SELECT  DISTINCT a.PLAQUE
+SELECT DISTINCT a.PLAQUE
 FROM auto a, voiture_couleur vc, couleur c, modele m
 WHERE a.ID_VOITURE = vc.ID_VOITURE
 AND vc.ID_COULEUR = c.ID_COULEUR
-AND c.NOM_COULEUR = "rouge"
+AND c.NOM_COULEUR = "gris"
 AND a.PLAQUE IN(SELECT  a.PLAQUE
-	FROM voiture_couleur vc, couleur c, modele m
-	WHERE a.ID_VOITURE = vc.ID_VOITURE
-	AND vc.ID_COULEUR = c.ID_COULEUR
-	AND c.NOM_COULEUR = "violet")
+    FROM voiture_couleur vc, couleur c, modele m
+    WHERE a.ID_VOITURE = vc.ID_VOITURE
+    AND vc.ID_COULEUR = c.ID_COULEUR
+    AND c.NOM_COULEUR = "violet")
 
 
 *************** exo6 *******************

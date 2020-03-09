@@ -14,7 +14,6 @@ class CouleurManager{
         WHERE NOM_COULEUR=:NOM_COULEUR');
         $test=$query->execute($data);
         $test = $query->fetch();
-
         if(!$test){
             $query = $this->_db->prepare( 'INSERT INTO couleur (NOM_COULEUR) 
             VALUES(:NOM_COULEUR)');

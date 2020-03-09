@@ -35,12 +35,10 @@ if(isset($_POST["modele"]) && !isset($_POST["auto"])){
     $manager -> add($modeles);    
 }
 if(isset($_POST["auto"])){
-    var_dump($_POST);
     $manager = new AutoManager($db);
     $auto =["PLAQUE"=>$_POST["auto"],"NB_PORTES"=>$_POST["nb_portes"],"ID_MODELE"=>$_POST["modele"],"ID_MOTEUR"=>$_POST["moteur"]];    
     $manager = new AutoManager($db);
     $manager -> add($auto);
-    var_dump($_POST);
 }
 
 ?>

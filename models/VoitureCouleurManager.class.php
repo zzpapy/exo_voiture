@@ -11,11 +11,13 @@ class VoitureCouleurManager{
     {   
         $query=$this->_db->prepare( 'SELECT * 
                         FROM voiture_couleur 
-                        WHERE ID_COULEUR = "'.$data["ID_COULEUR"].'"');
+                        WHERE ID_COULEUR = "'.$data["ID_COULEUR"].'"
+                        AND ID_VOITURE = "'.$data["ID_VOITURE"].'"');
         $test=$query->execute($data);
         $test = $query->fetch();
         $query = $this->_db->prepare( 'INSERT INTO voiture_couleur (ID_COULEUR,ID_VOITURE) 
                                 VALUES(:ID_COULEUR,:ID_VOITURE)');
+        var_dump($test);
         if(!$test){
             try{
                 $query->execute($data);

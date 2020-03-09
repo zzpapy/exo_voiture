@@ -29,6 +29,12 @@ class ModeleManager{
         return $modele; 
         
     }
+    public function findByNom($id){
+        $query = $this->_db->prepare('SELECT NOM_MODELE FROM modele WHERE ID_MODELE='.$id);
+        $query->execute();
+        $nom = $query->fetch();
+        return $nom;
+    }
     public function setDb(PDO $db)
     {
         $this->_db = $db;
