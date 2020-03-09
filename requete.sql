@@ -40,13 +40,16 @@ ORDER BY nb DESC
 
 *************** exo5 *******************
 
-SELECT  m.NOM_MODELE
+SELECT  DISTINCT a.PLAQUE
 FROM auto a, voiture_couleur vc, couleur c, modele m
 WHERE a.ID_VOITURE = vc.ID_VOITURE
 AND vc.ID_COULEUR = c.ID_COULEUR
 AND c.NOM_COULEUR = "rouge"
-OR c.NOM_COULEUR = "gris"
-GROUP BY m.NOM_MODELE 
+AND a.PLAQUE IN(SELECT  a.PLAQUE
+	FROM voiture_couleur vc, couleur c, modele m
+	WHERE a.ID_VOITURE = vc.ID_VOITURE
+	AND vc.ID_COULEUR = c.ID_COULEUR
+	AND c.NOM_COULEUR = "violet")
 
 
 *************** exo6 *******************

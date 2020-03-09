@@ -12,8 +12,8 @@ class AutoManager{
         $query=$this->_db->prepare( 'SELECT * 
         FROM auto WHERE PLAQUE="'.$data["PLAQUE"].'"');
         $test=$query->execute();
-        $test = $query->fetch();    
-        if(!$test){
+        $test = $query->fetch(); 
+        if(empty($test)){
         $query = $this->_db->prepare( 'INSERT INTO auto (PLAQUE,NB_PORTES,ID_MODELE,ID_MOTEUR) 
                                         VALUES(:PLAQUE,:NB_PORTES,:ID_MODELE,:ID_MOTEUR)');
             try{
@@ -48,6 +48,14 @@ class AutoManager{
          $test=$query->execute();
          $test = $query->fetchAll();  
          return $test; 
+    }
+    public function findAll(){
+        $query=$this->_db->prepare( 'SELECT * 
+        FROM auto ');
+        $autos=$query->execute();
+        $autos = $query->fetchALL();
+        return $autos; 
+        
     }
     
 }

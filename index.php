@@ -44,32 +44,32 @@ if(isset($traitementList[$page]))
 }
 require'apps/skel.php'; 
 	
-    $pays =["NOM_ORIGINE"=>"FR"];
-    $manager = new OrigineManager($db);
-    $manager -> add($pays);
+    // $pays =["NOM_ORIGINE"=>"IT"];
+    // $manager = new OrigineManager($db);
+    // $manager -> add($pays);
 
-    $couleurs =["NOM_COULEUR"=>"violet"];
-    $manager = new CouleurManager($db);
-    $manager -> add($couleurs);
+    // $couleurs =["NOM_COULEUR"=>"rouge"];
+    // $manager = new CouleurManager($db);
+    // $manager -> add($couleurs);
 
-    $moteurs =["TYPE_MOTEUR"=>"DIESEL"];
-    $manager = new MoteurManager($db);
-    $manager -> add($moteurs);
+    // $moteurs =["TYPE_MOTEUR"=>"DIESEL"];
+    // $manager = new MoteurManager($db);
+    // $manager -> add($moteurs);
 
-    $marques =["NOM_MARQUE"=>"peugeot","ID_ORIGINE"=>3];
-    $manager = new MarqueManager($db);
-    $manager -> add($marques);
+    // $marques =["NOM_MARQUE"=>"peugeot","ID_ORIGINE"=>1];
+    // $manager = new MarqueManager($db);
+    // $manager -> add($marques);
 
-    $modeles =["NOM_MODELE"=>"208","ID_MARQUE"=>5];   
-    $manager = new ModeleManager($db);
-    $manager -> add($modeles);
+    // $modeles =["NOM_MODELE"=>"208","ID_MARQUE"=>16];   
+    // $manager = new ModeleManager($db);
+    // $manager -> add($modeles);
 
-    $couleurs=["ID_COULEUR"=>5,"ID_VOITURE"=>2];     
-    $manager = new VoitureCouleurManager($db);
-    $manager -> add($couleurs);
-
-    $auto =["PLAQUE"=>"EX-337-RX","NB_PORTES"=>5,"ID_MODELE"=>6,"ID_MOTEUR"=>3];    
+    
+    $auto =["PLAQUE"=>"EX-337-RX","NB_PORTES"=>5,"ID_MODELE"=>14,"ID_MOTEUR"=>1];    
     $manager = new AutoManager($db);
     $manager -> add($auto);
-
+    
+    $couleurs=["ID_COULEUR"=>2,"ID_VOITURE"=>13];     
+    $manager = new VoitureCouleurManager($db);
+    $manager -> add($couleurs);
 ?>

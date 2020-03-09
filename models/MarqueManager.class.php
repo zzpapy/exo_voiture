@@ -14,11 +14,20 @@ class MarqueManager{
         WHERE NOM_MARQUE = "'.$data["NOM_MARQUE"].'"');
         $test=$query->execute();
         $test = $query->fetchAll();
-        if(!$test){
+        if(empty($test)){
             $query = $this->_db->prepare( 'INSERT INTO marque (NOM_MARQUE,ID_ORIGINE) 
                             VALUES(:NOM_MARQUE,:ID_ORIGINE) ');
             $query->execute($data);
         }
+        
+    }
+    public function findAll(){
+        $query=$this->_db->prepare( 'SELECT * 
+        FROM marque ');
+        $marque=$query->execute();
+        $marque = $query->fetchALL();
+        var_dump($marque);
+        return $marque; 
         
     }
     public function setDb(PDO $db)

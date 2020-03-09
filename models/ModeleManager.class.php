@@ -14,11 +14,20 @@ class ModeleManager{
         WHERE NOM_MODELE = "'.$data["NOM_MODELE"].'"');
         $test=$query->execute($data);
         $test = $query->fetch();
-        if(!$test){
+        if(empty($test)){
             $query = $this->_db->prepare( 'INSERT INTO modele (NOM_MODELE,ID_MARQUE) 
                                 VALUES(:NOM_MODELE,:ID_MARQUE) ');
             $query->execute($data);
         }
+    }
+    public function findAll(){
+        $query=$this->_db->prepare( 'SELECT * 
+        FROM modele ');
+        $modele=$query->execute();
+        $modele = $query->fetchALL();
+        var_dump($modele);
+        return $modele; 
+        
     }
     public function setDb(PDO $db)
     {

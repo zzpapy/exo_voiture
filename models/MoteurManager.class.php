@@ -19,6 +19,15 @@ class MoteurManager{
                 $query->execute($data);
         }
     }
+    public function findAll(){
+        $query=$this->_db->prepare( 'SELECT * 
+        FROM moteur ');
+        $moteur=$query->execute();
+        $moteur = $query->fetchALL();
+        var_dump($moteur);
+        return $moteur; 
+        
+    }
     public function setDb(PDO $db)
     {
         $this->_db = $db;

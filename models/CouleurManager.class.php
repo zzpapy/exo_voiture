@@ -22,6 +22,15 @@ class CouleurManager{
         }
         
     }
+    public function findAll(){
+        $query=$this->_db->prepare( 'SELECT * 
+        FROM couleur ');
+        $couleurs=$query->execute();
+        $couleurs = $query->fetchALL();
+        var_dump($couleurs);
+        return $couleurs; 
+        
+    }
     public function setDb(PDO $db)
     {
         $this->_db = $db;

@@ -6,9 +6,14 @@
     <title>Document</title>
 </head>
 <body>
-    toto
+    <?php 
+        require 'affich_origine.php';
+        require 'affich_couleur.php';
+        require 'affich_moteur.php';
+        require 'affich_modele.php';
+        require 'affich_marque.php';
+        require 'affich_auto.php';
+    ?>
+    <a href="index.php?page=crea">Créer</a>
 </body>
 </html>
-<?php 
-   require 'affich_marque.php';
-?>

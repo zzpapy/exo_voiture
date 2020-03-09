@@ -25,6 +25,15 @@ class VoitureCouleurManager{
             }        
         }            
     }
+    public function findAll(){
+        $query=$this->_db->prepare( 'SELECT * 
+        FROM voiture_couleur ');
+        $voiture_couleur=$query->execute();
+        $voiture_couleur = $query->fetchALL();
+        var_dump($voiture_couleur);
+        return $voiture_couleur; 
+        
+    }
     public function setDb(PDO $db)
     {
         $this->_db = $db;
